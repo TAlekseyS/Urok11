@@ -111,10 +111,10 @@ public class RadioTest {
 
         Assertions.assertEquals(expected, actual);
     }
-/*
+
     @Test
     public void shouldSet51Volume() {
-        Radio cond = new Radio();
+        Radio cond = new Radio(0,100);
         cond.setCurrentSoundVolume(50);
 
         cond.setNextSoundVolume();
@@ -128,7 +128,7 @@ public class RadioTest {
 
     @Test
     public void shouldSet100Volume() {
-        Radio cond = new Radio();
+        Radio cond = new Radio(0,100);
         cond.setCurrentSoundVolume(100);
 
         cond.setNextSoundVolume();
@@ -142,7 +142,7 @@ public class RadioTest {
 
     @Test
     public void shouldSetZeroVolume() {
-        Radio cond = new Radio();
+        Radio cond = new Radio(0,100);
         cond.setCurrentSoundVolume(0);
 
         cond.setPervSoundVolume();
@@ -152,5 +152,5 @@ public class RadioTest {
         int actual = cond.currentSoundVolume;
 
         Assertions.assertEquals(expected, actual);
-    }*/
+    }
 }
