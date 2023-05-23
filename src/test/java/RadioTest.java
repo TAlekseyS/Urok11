@@ -13,12 +13,12 @@ public class RadioTest {
 
     @Test
     public void shouldSetRadioStationNumber() {
-        Radio cond = new Radio(0,9);
+        Radio rad = new Radio(0,9);
 
-        cond.setCurrentRadioStationNumber(9);
+        rad.setCurrentRadioStationNumber(9);
 
         int expected = 9;
-        int actual = cond.getCurrentRadioStationNumber();
+        int actual = rad.getCurrentRadioStationNumber();
 
         Assertions.assertEquals(expected, actual);
     }
