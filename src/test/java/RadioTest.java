@@ -3,13 +3,7 @@ import org.junit.jupiter.api.Assertions;
 
 public class RadioTest {
 
- /*  @Test
-    public void test() {
-        Radio rad = new Radio(10, 20);
-
-        Assertions.assertEquals(10, rad.getLowestChannel());
-        Assertions.assertEquals(20, rad.getHighestChannel());
-    }*/
+ 
 
     @Test
     public void shouldSetRadioStationNumber() {
