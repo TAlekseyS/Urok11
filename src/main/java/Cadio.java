@@ -1,29 +1,16 @@
-public class Radio {
-    // private int currentRadioStationNumber;
-    private int highestChannel = 10;
+public class Cadio {
+
+    private int highestChannel = 9;
     private int lowestChannel = 0;
     private int currentRadioStationNumber = lowestChannel;
 
-
-    public Radio() {
+    public Cadio(){
 
     }
-
-    public Radio(int lowestChannel, int highestChannel) {
-        this.lowestChannel = lowestChannel;
-        this.highestChannel = highestChannel;
-        this.currentRadioStationNumber = lowestChannel;
-    }
-
-    public Radio(int size) {
-        highestChannel = lowestChannel;
-    }
-
 
     public int getCurrentRadioStationNumber() {
         return currentRadioStationNumber;
     }
-
     public int getHighestChannel() {
         return highestChannel;
     }
@@ -32,7 +19,6 @@ public class Radio {
         return lowestChannel;
 
     }
-
     public void setCurrentRadioStationNumber(int newCurrentRadioStationNumber) {
         if (newCurrentRadioStationNumber < lowestChannel) {
             return;
@@ -50,7 +36,7 @@ public class Radio {
         if (currentRadioStationNumber < highestChannel) {
             currentRadioStationNumber = currentRadioStationNumber + 1;
         } else {
-            currentRadioStationNumber = lowestChannel;
+            currentRadioStationNumber = 0;
         }
     }
 
@@ -60,15 +46,12 @@ public class Radio {
         if (currentRadioStationNumber > lowestChannel) {
             currentRadioStationNumber = currentRadioStationNumber - 1;
         } else {
-            currentRadioStationNumber = highestChannel;
+            currentRadioStationNumber = 9;
         }
     }
 
     public int currentSoundVolume;
 
-    public int getCurrentSoundVolume() {
-        return currentSoundVolume;
-    }
 
     public void setCurrentSoundVolume(int newCurrentSoundVolume) {
         if (newCurrentSoundVolume < 0) {
