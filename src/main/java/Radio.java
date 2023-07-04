@@ -1,18 +1,24 @@
 public class Radio {
-    private int currentRadioStationNumber;
-    private int highestChannel = 9;
+    // private int currentRadioStationNumber;
+    private int highestChannel = 10;
     private int lowestChannel = 0;
-    //private int currentRadioStationNumber = lowestChannel;
+    private int currentRadioStationNumber = lowestChannel;
+
+
+    public Radio() {
+
+    }
 
     public Radio(int lowestChannel, int highestChannel) {
         this.lowestChannel = lowestChannel;
         this.highestChannel = highestChannel;
-        //this.currentRadioStationNumber = lowestChannel;
+        this.currentRadioStationNumber = lowestChannel;
     }
 
     public Radio(int size) {
-        highestChannel = lowestChannel + size;
+        highestChannel = lowestChannel;
     }
+
 
     public int getCurrentRadioStationNumber() {
         return currentRadioStationNumber;
