@@ -3,10 +3,17 @@ import org.junit.jupiter.api.Assertions;
 
 public class RadioTest {
 
-
+    @Test
+    public void shouldSetWithoutParametersMaxRadioStationNumber() {
+        Radio radio = new Radio();
+        radio.setCurrentRadioStationNumber(10);
+        int expected = 0;
+        int actual = radio.getCurrentRadioStationNumber();
+        Assertions.assertEquals(expected, actual);
+    }
     @Test
     public void shouldSetMaxRadioStationNumber() {
-        Radio radio = new Radio();
+        Radio radio = new Radio( 9);
         radio.setCurrentRadioStationNumber(10);
         int expected = 0;
         int actual = radio.getCurrentRadioStationNumber();
@@ -15,7 +22,7 @@ public class RadioTest {
 
     @Test
     public void shouldSetMinRadioStationNumber() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(9);
         radio.setCurrentRadioStationNumber(-1);
         int expected = 0;
         int actual = radio.getCurrentRadioStationNumber();
@@ -25,7 +32,7 @@ public class RadioTest {
 
     @Test
     public void shouldSetNextRadioStationNumber() {
-        Radio radio = new Radio();
+        Radio radio = new Radio( 9);
         radio.setCurrentRadioStationNumber(4);
         radio.setNextRadioStationNumber();
         int expected = 5;
@@ -35,7 +42,7 @@ public class RadioTest {
 
     @Test
     public void shouldSetZeroRadioStationNumber() {
-        Radio radio = new Radio();
+        Radio radio = new Radio( 9);
         radio.setCurrentRadioStationNumber(9);
         radio.setNextRadioStationNumber();
         int expected = 0;
@@ -45,7 +52,7 @@ public class RadioTest {
 
     @Test
     public void shouldSetPervRadioStationNumber() {
-        Radio radio = new Radio();
+        Radio radio = new Radio( 9);
         radio.setCurrentRadioStationNumber(4);
         radio.setPervRadioStationNumber();
         int expected = 3;
@@ -55,7 +62,7 @@ public class RadioTest {
 
     @Test
     public void shouldSetNineRadioStationNumber() {
-        Radio radio = new Radio();
+        Radio radio = new Radio( 9);
         radio.setPervRadioStationNumber();
         int expected = 9;
         int actual = radio.getCurrentRadioStationNumber();
@@ -64,7 +71,7 @@ public class RadioTest {
 
     @Test
     public void shouldSetZeroAfterMaxVolume() {
-        Radio radio = new Radio();
+        Radio radio = new Radio( 100);
         radio.setCurrentSoundVolume(101);
         int expected = 0;
         int actual = radio.getCurrentSoundVolume();
@@ -73,7 +80,7 @@ public class RadioTest {
 
     @Test
     public void shouldSetZeroAfterMinVolume() {
-        Radio radio = new Radio();
+        Radio radio = new Radio( 100);
         radio.setCurrentSoundVolume(-1);
         int expected = 0;
         int actual = radio.getCurrentSoundVolume();
@@ -82,7 +89,7 @@ public class RadioTest {
 
     @Test
     void shouldSet51Volume() {
-        Radio radio = new Radio();
+        Radio radio = new Radio( 100);
         radio.setCurrentSoundVolume(50);
         radio.setNextSoundVolume();
         int expected = 51;
@@ -92,7 +99,7 @@ public class RadioTest {
 
     @Test
     void shouldShowMaxVolume() {
-        Radio radio = new Radio();
+        Radio radio = new Radio( 100);
         radio.setCurrentSoundVolume(100);
         radio.setNextSoundVolume();
         int expected = 100;
@@ -102,7 +109,7 @@ public class RadioTest {
 
     @Test
     void shouldShowMinVolume() {
-        Radio radio = new Radio();
+        Radio radio = new Radio( 100);
         radio.setCurrentSoundVolume(1);
         radio.setPervSoundVolume();
         int expected = 0;
@@ -112,7 +119,7 @@ public class RadioTest {
 
     @Test
     void shouldShowZeroBelowLimit() {
-        Radio radio = new Radio();
+        Radio radio = new Radio( 100);
         radio.setPervSoundVolume();
         int expected = 0;
         int actual = radio.getCurrentSoundVolume();

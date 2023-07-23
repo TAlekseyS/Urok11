@@ -1,37 +1,52 @@
 
 public class Radio {
-    private int currentRadioStationNumber ;
+    private int currentRadioStationNumber;
     private int currentSoundVolume;
 
+    private int lowestChannel = 0;
+
+    private int highestChannel = 9;
+
+    public Radio(int highestChannel) {
+        // this.lowestChannel = lowestChannel;
+       // this.highestChannel = highestChannel;
+       // this.currentRadioStationNumber = lowestChannel;
+    }
+
+    public Radio() {
+        this.highestChannel = highestChannel;
+        this.currentRadioStationNumber = lowestChannel;
+    }
+
     public int getCurrentRadioStationNumber() {
-        return currentRadioStationNumber ;
+        return currentRadioStationNumber;
     }
 
 
     public void setCurrentRadioStationNumber(int currentStation) {
-        if (currentStation > 9) {
+        if (currentStation > highestChannel) {
             return;
         }
-        if (currentStation < 0) {
+        if (currentStation < lowestChannel) {
             return;
         }
-        this.currentRadioStationNumber  = currentStation;
+        this.currentRadioStationNumber = currentStation;
     }
 
 
     public void setNextRadioStationNumber() {
-        if (currentRadioStationNumber  < 9) {
-            currentRadioStationNumber  = currentRadioStationNumber  + 1;
+        if (currentRadioStationNumber < highestChannel) {
+            currentRadioStationNumber = currentRadioStationNumber + 1;
         } else {
-            currentRadioStationNumber  = 0;
+            currentRadioStationNumber = lowestChannel;
         }
     }
 
     public void setPervRadioStationNumber() {
-        if (currentRadioStationNumber  > 0) {
-            currentRadioStationNumber  = currentRadioStationNumber  - 1;
+        if (currentRadioStationNumber > lowestChannel) {
+            currentRadioStationNumber = currentRadioStationNumber - 1;
         } else {
-            currentRadioStationNumber  = 9;
+            currentRadioStationNumber = highestChannel;
         }
     }
 
