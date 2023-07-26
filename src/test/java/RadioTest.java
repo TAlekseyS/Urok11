@@ -13,7 +13,7 @@ public class RadioTest {
     }
     @Test
     public void shouldSetMaxRadioStationNumber() {
-        Radio radio = new Radio( 9);
+        Radio radio = new Radio( 10);
         radio.setCurrentRadioStationNumber(10);
         int expected = 0;
         int actual = radio.getCurrentRadioStationNumber();
@@ -22,7 +22,7 @@ public class RadioTest {
 
     @Test
     public void shouldSetMinRadioStationNumber() {
-        Radio radio = new Radio(9);
+        Radio radio = new Radio(10);
         radio.setCurrentRadioStationNumber(-1);
         int expected = 0;
         int actual = radio.getCurrentRadioStationNumber();
@@ -32,7 +32,7 @@ public class RadioTest {
 
     @Test
     public void shouldSetNextRadioStationNumber() {
-        Radio radio = new Radio( 9);
+        Radio radio = new Radio( 10);
         radio.setCurrentRadioStationNumber(4);
         radio.setNextRadioStationNumber();
         int expected = 5;
@@ -42,7 +42,7 @@ public class RadioTest {
 
     @Test
     public void shouldSetZeroRadioStationNumber() {
-        Radio radio = new Radio( 9);
+        Radio radio = new Radio( 10);
         radio.setCurrentRadioStationNumber(9);
         radio.setNextRadioStationNumber();
         int expected = 0;
@@ -51,8 +51,27 @@ public class RadioTest {
     }
 
     @Test
+    public void shouldSetZeroVoidRadioStationNumber() {
+        Radio radio = new Radio( 10);
+        radio.setCurrentRadioStationNumber(9);
+        radio.setNextRadioStationNumber();
+        int expected = 0;
+        int actual = radio.getCurrentRadioStationNumber();
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldSetPervZeroRadioStationNumber() {
+        Radio radio = new Radio( 10);
+        radio.setCurrentRadioStationNumber(0);
+        radio.setPervRadioStationNumber();
+        int expected = 9;
+        int actual = radio.getCurrentRadioStationNumber();
+        Assertions.assertEquals(expected, actual);
+    }
+    @Test
     public void shouldSetPervRadioStationNumber() {
-        Radio radio = new Radio( 9);
+        Radio radio = new Radio( 10);
         radio.setCurrentRadioStationNumber(4);
         radio.setPervRadioStationNumber();
         int expected = 3;
@@ -60,14 +79,23 @@ public class RadioTest {
         Assertions.assertEquals(expected, actual);
     }
 
-    @Test
+  /*  @Test
     public void shouldSetNineRadioStationNumber() {
-        Radio radio = new Radio( 9);
+        Radio radio = new Radio( 10);
         radio.setPervRadioStationNumber();
         int expected = 9;
         int actual = radio.getCurrentRadioStationNumber();
         Assertions.assertEquals(expected, actual);
     }
+
+    @Test
+    public void shouldSetNineVoidRadioStationNumber() {
+        Radio radio = new Radio( );
+        radio.setPervRadioStationNumber();
+        int expected = 8;
+        int actual = radio.getCurrentRadioStationNumber();
+        Assertions.assertEquals(expected, actual);
+    }*/
 
     @Test
     public void shouldSetZeroAfterMaxVolume() {

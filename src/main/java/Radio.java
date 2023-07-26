@@ -5,16 +5,16 @@ public class Radio {
 
     private int lowestChannel = 0;
 
-    private int highestChannel = 9;
+    private int highestChannel = 10;
 
     public Radio(int highestChannel) {
-        // this.lowestChannel = lowestChannel;
-       // this.highestChannel = highestChannel;
-       // this.currentRadioStationNumber = lowestChannel;
+        this.lowestChannel = lowestChannel;
+        this.highestChannel = highestChannel;
+        this.currentRadioStationNumber = lowestChannel;
     }
 
     public Radio() {
-        this.highestChannel = highestChannel;
+        this.highestChannel = highestChannel - 1;
         this.currentRadioStationNumber = lowestChannel;
     }
 
@@ -24,7 +24,7 @@ public class Radio {
 
 
     public void setCurrentRadioStationNumber(int currentStation) {
-        if (currentStation > highestChannel) {
+        if (currentStation > highestChannel - 1) {
             return;
         }
         if (currentStation < lowestChannel) {
@@ -35,7 +35,7 @@ public class Radio {
 
 
     public void setNextRadioStationNumber() {
-        if (currentRadioStationNumber < highestChannel) {
+        if (currentRadioStationNumber < highestChannel - 1) {
             currentRadioStationNumber = currentRadioStationNumber + 1;
         } else {
             currentRadioStationNumber = lowestChannel;
@@ -46,7 +46,7 @@ public class Radio {
         if (currentRadioStationNumber > lowestChannel) {
             currentRadioStationNumber = currentRadioStationNumber - 1;
         } else {
-            currentRadioStationNumber = highestChannel;
+            currentRadioStationNumber = highestChannel - 1;
         }
     }
 
